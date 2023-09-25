@@ -1,0 +1,26 @@
+{
+  "name": "키즈가든 선생님용",
+  "short_name": "키즈가든 T",
+  "start_url": "",
+  "display": "standalone",
+  "background_color": "#FFD100",
+  "theme_color": "#FFD100",
+  "description": "우리아이 스마트 알림장 키즈가든",
+  "icons": [
+    {
+      "src": "icons/kidsgarden.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "icons/kidsgarden192.png",
+      "type": "image/png",
+      "sizes": "196x196"
+    },
+    {
+      "src": "icons/kidsgarden512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
