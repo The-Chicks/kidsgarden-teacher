@@ -1,0 +1,44 @@
+.transparent {
+  background-color: transparent;
+  color: black;
+}
+
+.black.bg {
+  background-color: black;
+  color: white;
+}
+.black.bg:hover {
+  border: 1px solid black;
+  background-color: white;
+  color: black;
+}
+
+.black.border {
+  border: 1px solid black;
+  background-color: white;
+  color: black;
+}
+.black.border:hover {
+  background-color: black;
+  color: white;
+}
+
+.yellow.bg {
+  background-color: #ffd100;
+  color: black;
+}
+.yellow.bg:hover {
+  border: 1px solid #ff9900;
+  background-color: white;
+  color: #ff9900;
+}
+
+.yellow.border {
+  border: 1px solid #ff9900;
+  background-color: white;
+  color: #ff9900;
+}
+.yellow.border:hover {
+  background-color: #ffd100;
+  color: black;
+}
