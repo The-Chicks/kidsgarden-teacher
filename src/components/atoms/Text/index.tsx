@@ -2,15 +2,15 @@ import styled from "styled-components";
 
 type Props = {
   style?: any;
-  text: string;
+  children: React.ReactNode;
   color?: "black" | "orange";
   fontSize?: number;
 };
 
-const Text = ({ style, text = "", color = "black", fontSize = 1 }: Props) => {
+const Text = ({ style, children, color = "black", fontSize = 1 }: Props) => {
   return (
     <Txt style={style} color={color} fontSize={fontSize}>
-      {text}
+      {children}
     </Txt>
   );
 };

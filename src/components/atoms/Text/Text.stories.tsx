@@ -11,7 +11,7 @@ type Story = StoryObj<typeof Text>;
 
 export const TestText: Story = {
   args: {
-    text: "test",
+    children: "test",
     fontSize: 1,
     color: "black",
   },

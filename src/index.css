@@ -96,9 +96,8 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-family: "TheJamsil5Bold";
+  font-family: "KCC-Ganpan";
   font-size: 1rem;
-  font: inherit;
   vertical-align: baseline;
   vertical-align: -webkit-baseline-middle;
   vertical-align: -moz-middle-with-baseline;
@@ -110,7 +109,7 @@ body {
   margin: 0;
   width: 100dvw;
   height: 100dvh;
-  font-family: "TheJamsil5Bold";
+  font-family: "KCC-Ganpan";
 }
 main {
   width: 100%;

@@ -1,17 +1,19 @@
 import styled from "styled-components";
 
 type Props = {
+  type?: "text" | "password";
   name: string;
   width?: string;
   height?: string;
   placeholder?: string;
   value: any;
   onChange: any;
-  color: "black" | "orange";
+  color?: "black" | "orange";
   fontSize?: number;
 };
 
 const Input = ({
+  type = "text",
   name,
   width = "auto",
   height = "auto",
@@ -23,6 +25,7 @@ const Input = ({
 }: Props) => {
   return (
     <Inp
+      type={type}
       name={name}
       placeholder={placeholder}
       value={value}
@@ -46,10 +49,11 @@ const Inp = styled.input<{
   padding: 10px;
   color: ${(props) => (props.color === "black" ? "black" : "#FF9900")};
   font-size: ${(props) => props.fontSize}rem;
+  border: 1px solid black;
   border-radius: 10px;
   &:focus {
-    border-color: #ff9900;
-    outline: 1px solid #ff9900;
+    border-color: #ffd100;
+    outline: 1px solid #ffd100;
   }
 `;
 
