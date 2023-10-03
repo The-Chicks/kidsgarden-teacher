@@ -1,51 +1,67 @@
 import { useMediaQuery } from "react-responsive";
-import styled from "styled-components";
 import Menu from "/icons/menu.svg";
 import { useNavigate } from "react-router-dom";
 import Button from "../../atoms/Button";
-import {
-  userEmail,
-  userNameState,
-  userId,
-} from "../../../libs/stores/UserStore";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { userState } from "../../../libs/stores/UserStore";
+import UserApi from "../../../libs/apis/UserApi";
+import { useEffect } from "react";
+import Text from "../../atoms/Text";
 
 const Header = () => {
   const navigate = useNavigate();
   const isMobile = useMediaQuery({
     query: "(max-width: 700px)",
   });
-  // const userEmail = useRecoilValue;
+  const user = useRecoilValue(userState);
+  const setUser = useSetRecoilState(userState);
+
+  useEffect(() => {
+    const token = localStorage.getItem("KE_accessToken");
+    if (user.name == "" && token) {
+      console.log("토큰 다시 파싱");
+      let info = UserApi.parseJwt(localStorage.getItem("KE_accessToken")!);
+      console.log(info);
+      setUser({ name: info.name, email: info.email, id: info.id });
+    } else {
+      console.log("토큰 없음");
+    }
+  }, []);
+
+  const logout = () => {
+    console.log("Log Out");
+    localStorage.removeItem("KE_accessToken");
+    localStorage.removeItem("KE_refreshToken");
+    setUser({ name: "", email: "", id: "" });
+    navigate("/");
+  };
 
   return (
     <header>
-      <Logo>키즈가든</Logo>
+      <Text
+        style={{
+          width: isMobile ? "100px" : "10dvw",
+          height: "50px",
+          backgroundColor: "#FFD100",
+        }}
+        fontSize={1.5}>
+        키즈가든
+      </Text>
       {isMobile ? (
-        <img src={Menu} width={"50px"} height={"50px"} />
+        <img src={Menu} width={"30px"} height={"30px"} />
       ) : (
-        <div>
+        <span style={{ display: "flex", gap: "20px" }}>
           <Button
             onClick={() => {
               navigate("/info");
             }}
-            text="닉네임"
+            text={user.name == "" ? "닉네임" : user.name}
           />
-          <Button
-            onClick={() => {
-              navigate("/");
-            }}
-            text="로그아웃"
-          />
-        </div>
+          <Button onClick={logout} text="로그아웃" />
+        </span>
       )}
     </header>
   );
 };
-
-const Logo = styled.div`
-  width: 150px;
-  height: 50px;
-  color: black;
-  background-color: #ffd100;
-`;
 
 export default Header;

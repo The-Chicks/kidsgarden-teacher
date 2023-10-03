@@ -16,8 +16,8 @@ const LoginPage = () => {
   return (
     <Main>
       <Article>
-        <YellowBox isMobile={isMobile ? "true" : "false"}>
-          <Text fontSize={isMobile ? 1.2 : 2.5}>키즈가든</Text>
+        <YellowBox mobile={isMobile ? "true" : "false"}>
+          <Text fontSize={isMobile ? 1.8 : 2.5}>키즈가든</Text>
           <Text fontSize={isMobile ? 0.8 : 1.5}>
             우리 아이를 위한 스마트 알림장
           </Text>
@@ -63,6 +63,8 @@ const LoginPage = () => {
 const Main = styled.main`
   width: 100dvw;
   height: 100dvh;
+  overflow: scroll;
+  background-color: white;
 `;
 
 const Article = styled.article`
@@ -72,15 +74,15 @@ const Article = styled.article`
   justify-content: center;
 `;
 
-const YellowBox = styled.div<{ isMobile: string }>`
-  width: ${(props) => (props.isMobile === "true" ? "80dvw" : "600px")};
-  height: ${(props) => (props.isMobile === "true" ? "20dvh" : "300px")};
+const YellowBox = styled.div<{ mobile: string }>`
+  width: ${(props) => (props.mobile === "true" ? "80dvw" : "600px")};
+  height: ${(props) => (props.mobile === "true" ? "20dvh" : "300px")};
   background-color: #ffd100;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 20%;
+  gap: 4dvh;
   align-items: center;
 
   margin-bottom: 100px;

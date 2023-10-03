@@ -104,6 +104,11 @@ video {
   box-sizing: border-box;
 }
 
+#root {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 html,
 body {
   margin: 0;
@@ -112,13 +117,14 @@ body {
   font-family: "KCC-Ganpan";
 }
 main {
-  width: 100%;
-  height: calc(100% - 80px);
+  width: 90dvw;
+  height: calc(100dvh - 50px);
   padding: 20px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #eee;
 
   overflow: scroll;
   scrollbar-width: 0;
@@ -126,13 +132,23 @@ main {
 main::-webkit-scrollbar {
   display: none;
 }
+article {
+  animation: openModal 1s ease;
+}
+section {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 header {
   width: 100dvw;
   height: 50px;
   line-height: 50px;
-  padding-left: 20px;
   font-size: 1.2rem;
   color: slategray;
+  padding-right: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 footer {
   position: absolute;
@@ -192,4 +208,10 @@ textarea {
   overflow: auto;
   vertical-align: top;
   resize: vertical;
+}
+
+@media screen and (max-width: 700px) {
+  main {
+    width: 100dvw;
+  }
 }
