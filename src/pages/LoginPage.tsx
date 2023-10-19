@@ -1,22 +1,25 @@
-import { useState } from "react";
-import { useMediaQuery } from "react-responsive";
-import styled from "styled-components";
-import Text from "../components/atoms/Text";
-import Input from "../components/atoms/Input";
-import Button from "../components/atoms/Button";
+import React from 'react';
+import { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
+import styled from 'styled-components';
+import Text from '../components/atoms/Text';
+import Input from '../components/atoms/Input';
+import Button from '../components/atoms/Button';
 
 const LoginPage = () => {
   const isMobile = useMediaQuery({
-    query: "(max-width: 700px)",
+    query: '(max-width: 700px)',
   });
-  const [email, setEmail] = useState("");
-  const [pw, setPw] = useState("");
-  const login = () => {};
+  const [email, setEmail] = useState('');
+  const [pw, setPw] = useState('');
+  const login = () => {
+    return;
+  };
 
   return (
     <Main>
       <Article>
-        <YellowBox mobile={isMobile ? "true" : "false"}>
+        <YellowBox>
           <Text fontSize={isMobile ? 1.8 : 2.5}>키즈가든</Text>
           <Text fontSize={isMobile ? 0.8 : 1.5}>
             우리 아이를 위한 스마트 알림장
@@ -25,7 +28,8 @@ const LoginPage = () => {
         <Form
           onSubmit={(e) => {
             e.preventDefault();
-          }}>
+          }}
+        >
           <Input
             width="100%"
             height="50px"
@@ -47,13 +51,9 @@ const LoginPage = () => {
             placeholder="PW"
             name="pw"
           />
-          <Button
-            width="100%"
-            height="50px"
-            onClick={login}
-            text="로그인"
-            color="yellow"
-          />
+          <Button width="100%" height="50px" onClick={login} color="yellow">
+            로그인
+          </Button>
         </Form>
       </Article>
     </Main>
@@ -63,20 +63,27 @@ const LoginPage = () => {
 const Main = styled.main`
   width: 100dvw;
   height: 100dvh;
+  display: flex;
+  justify-content: center;
   overflow: scroll;
   background-color: white;
 `;
 
 const Article = styled.article`
+  width: 600px;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media screen and (max-width: 700px) {
+    width: 80dvw;
+  }
 `;
 
-const YellowBox = styled.div<{ mobile: string }>`
-  width: ${(props) => (props.mobile === "true" ? "80dvw" : "600px")};
-  height: ${(props) => (props.mobile === "true" ? "20dvh" : "300px")};
+const YellowBox = styled.div`
+  width: 600px;
+  height: 300px;
   background-color: #ffd100;
   border-radius: 20px;
   display: flex;
@@ -84,10 +91,13 @@ const YellowBox = styled.div<{ mobile: string }>`
   justify-content: center;
   gap: 4dvh;
   align-items: center;
-
   margin-bottom: 100px;
-`;
 
+  @media screen and (max-width: 700px) {
+    width: 80dvw;
+    height: 20dvh;
+  }
+`;
 const Form = styled.form`
   width: 100%;
   display: flex;

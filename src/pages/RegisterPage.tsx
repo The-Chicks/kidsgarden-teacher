@@ -1,28 +1,31 @@
-import { useState } from "react";
-import { useMediaQuery } from "react-responsive";
-import styled from "styled-components";
-import Text from "../components/atoms/Text";
-import Input from "../components/atoms/Input";
-import Button from "../components/atoms/Button";
+import React from 'react';
+import { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
+import styled from 'styled-components';
+import Text from '../components/atoms/Text';
+import Input from '../components/atoms/Input';
+import Button from '../components/atoms/Button';
 
 const RegisterPage = () => {
   const isMobile = useMediaQuery({
-    query: "(max-width: 700px)",
+    query: '(max-width: 700px)',
   });
-  const [email, setEmail] = useState("");
-  const [pw, setPw] = useState("");
-  const [pwConfirm, setPwConfirm] = useState("");
+  const [email, setEmail] = useState('');
+  const [pw, setPw] = useState('');
+  const [pwConfirm, setPwConfirm] = useState('');
   const [groups, setGroups] = useState([]);
   const [selGroup, setSelGroup] = useState(-1);
-  const [name, setName] = useState("");
+  const [name, setName] = useState('');
   const [term, setTerm] = useState([false, false]);
 
-  const register = () => {};
+  const register = () => {
+    return;
+  };
 
   return (
     <Main>
       <Article>
-        <YellowBox isMobile={isMobile ? "true" : "false"}>
+        <YellowBox>
           <Text fontSize={isMobile ? 1.8 : 2.5}>키즈가든</Text>
           <Text fontSize={isMobile ? 0.8 : 1.5}>
             우리 아이를 위한 스마트 알림장
@@ -31,7 +34,8 @@ const RegisterPage = () => {
         <Form
           onSubmit={(e) => {
             e.preventDefault();
-          }}>
+          }}
+        >
           <Input
             width="100%"
             height="50px"
@@ -106,13 +110,9 @@ const RegisterPage = () => {
             개인정보 수집 이용 동의
           </Label>
 
-          <Button
-            width="100%"
-            height="50px"
-            onClick={register}
-            text="회원가입"
-            color="yellow"
-          />
+          <Button width="100%" height="50px" onClick={register} color="yellow">
+            회원가입
+          </Button>
         </Form>
       </Article>
     </Main>
@@ -122,19 +122,26 @@ const RegisterPage = () => {
 const Main = styled.main`
   width: 100dvw;
   height: 100dvh;
+  display: flex;
+  justify-content: center;
   background-color: white;
 `;
 
 const Article = styled.article`
+  width: 600px;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media screen and (max-width: 700px) {
+    width: 80dvw;
+  }
 `;
 
-const YellowBox = styled.div<{ isMobile: string }>`
-  width: ${(props) => (props.isMobile === "true" ? "80dvw" : "600px")};
-  height: ${(props) => (props.isMobile === "true" ? "20dvh" : "300px")};
+const YellowBox = styled.div`
+  width: 600px;
+  height: 300px;
   background-color: #ffd100;
   border-radius: 20px;
   display: flex;
@@ -143,6 +150,11 @@ const YellowBox = styled.div<{ isMobile: string }>`
   gap: 4dvh;
   align-items: center;
   margin-bottom: 100px;
+
+  @media screen and (max-width: 700px) {
+    width: 80dvw;
+    height: 20dvh;
+  }
 `;
 
 const Form = styled.form`

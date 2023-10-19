@@ -1,36 +1,42 @@
-import styled from "styled-components";
-import Text from "../components/atoms/Text";
-import { useMediaQuery } from "react-responsive";
-import { useState } from "react";
-import Input from "../components/atoms/Input";
-import Button from "../components/atoms/Button";
+import React from 'react';
+import styled from 'styled-components';
+import Text from '../components/atoms/Text';
+import { useMediaQuery } from 'react-responsive';
+import { useState } from 'react';
+import Input from '../components/atoms/Input';
+import Button from '../components/atoms/Button';
 
 const InfoPage = () => {
   const isMobile = useMediaQuery({
-    query: "(max-width: 700px)",
+    query: '(max-width: 700px)',
   });
-  const [email, setEmail] = useState("");
-  const [curPW, setCurPW] = useState("");
-  const [pw, setPw] = useState("");
-  const [pwConfirm, setPwConfirm] = useState("");
+  const [email, setEmail] = useState('');
+  const [curPW, setCurPW] = useState('');
+  const [pw, setPw] = useState('');
+  const [pwConfirm, setPwConfirm] = useState('');
   const [groups, setGroups] = useState([]);
   const [selGroup, setSelGroup] = useState(-1);
-  const [name, setName] = useState("");
+  const [name, setName] = useState('');
   const [term, setTerm] = useState([false, false]);
 
-  const register = () => {};
+  const register = () => {
+    return;
+  };
   return (
-    <Article width={isMobile ? "80dvw" : "600px"}>
+    <Article width={isMobile ? '80dvw' : '600px'}>
       <Text fontSize={isMobile ? 1.5 : 2.5}>선생님 정보 수정</Text>
       <Form
         onSubmit={(e) => {
           e.preventDefault();
-        }}>
+        }}
+      >
         <Input
           width="100%"
           height="50px"
           value={email}
-          onChange={() => {}}
+          onChange={() => {
+            return;
+          }}
           placeholder="Email"
           name="email"
         />
@@ -54,7 +60,7 @@ const InfoPage = () => {
           placeholder="선생님 이름"
           name="group"
         />
-        <div style={{ height: "50px" }} />
+        <div style={{ height: '50px' }} />
         <Input
           type="password"
           width="100%"
@@ -89,13 +95,9 @@ const InfoPage = () => {
           name="pwConfirm"
         />
 
-        <Button
-          width="100%"
-          height="50px"
-          onClick={register}
-          text="수정하기"
-          color="yellow"
-        />
+        <Button width="100%" height="50px" onClick={register} color="yellow">
+          수정하기
+        </Button>
       </Form>
     </Article>
   );

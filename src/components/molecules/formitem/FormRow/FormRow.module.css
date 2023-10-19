@@ -1,0 +1,9 @@
+.formRowTitle {
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+
+  @media screen and (max-width: 750px) {
+    width: auto;
+  }
+}

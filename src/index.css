@@ -1,16 +1,18 @@
 @font-face {
-  font-family: "KCC-Ganpan";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-Ganpan.woff2")
-    format("woff2");
+  font-family: 'KCC-Ganpan';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCC-Ganpan.woff2')
+    format('woff2');
   font-weight: normal;
   font-style: normal;
+  font-display: fallback;
 }
 @font-face {
-  font-family: "TheJamsil5Bold";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2")
-    format("woff2");
+  font-family: 'TheJamsil5Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2')
+    format('woff2');
   font-weight: 700;
   font-style: normal;
+  font-display: fallback;
 }
 
 html,
@@ -96,7 +98,7 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-family: "KCC-Ganpan";
+  font-family: 'KCC-Ganpan';
   font-size: 1rem;
   vertical-align: baseline;
   vertical-align: -webkit-baseline-middle;
@@ -114,16 +116,13 @@ body {
   margin: 0;
   width: 100dvw;
   height: 100dvh;
-  font-family: "KCC-Ganpan";
+  font-family: 'KCC-Ganpan';
 }
 main {
   width: 90dvw;
   height: calc(100dvh - 50px);
   padding: 20px;
   box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #eee;
 
   overflow: scroll;
@@ -133,6 +132,9 @@ main::-webkit-scrollbar {
   display: none;
 }
 article {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   animation: openModal 1s ease;
 }
 section {
@@ -149,6 +151,11 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+nav {
+  width: 10dvw;
+  height: calc(100dvh - 70px);
+  margin-top: 20px;
 }
 footer {
   position: absolute;
@@ -190,14 +197,14 @@ button {
   cursor: pointer;
   background-color: transparent;
 }
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration {
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
-input[type="search"] {
+input[type='search'] {
   -webkit-appearance: none;
   -moz-appearance: none;
   -webkit-box-sizing: content-box;
