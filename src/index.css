@@ -184,6 +184,10 @@ q {
   quotes: none;
 }
 
+select {
+  background-color: transparent;
+  border: 1px solid black;
+}
 button,
 input,
 select,

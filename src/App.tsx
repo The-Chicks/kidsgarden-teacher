@@ -10,6 +10,12 @@ import AnnouncementPage from './pages/AnnouncementPage';
 import AnnouncementAddPage from './pages/AnnouncementAddPage';
 import NotificationPage from './pages/NotificationPage';
 import NotificationAddPage from './pages/NotificationAddPage';
+import InformationPage from './pages/InformationPage';
+import AttendancePage from './pages/AttendancePage';
+import ConversationPage from './pages/ConversationPage';
+import DietPage from './pages/DietPage';
+import AlbumPage from './pages/AlbumPage';
+import SchedulePage from './pages/SchedulePage';
 
 function App() {
   return (
@@ -25,6 +31,12 @@ function App() {
             <Route path="announcement/add" element={<AnnouncementAddPage />} />
             <Route path="notification" element={<NotificationPage />} />
             <Route path="notification/add" element={<NotificationAddPage />} />
+            <Route path="information" element={<InformationPage />} />
+            <Route path="attendance" element={<AttendancePage />} />
+            <Route path="conversation" element={<ConversationPage />} />
+            <Route path="diet" element={<DietPage />} />
+            <Route path="album" element={<AlbumPage />} />
+            <Route path="schedule" element={<SchedulePage />} />
           </Route>
         </Routes>
       </BrowserRouter>

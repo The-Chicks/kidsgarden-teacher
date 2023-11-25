@@ -27,10 +27,14 @@ const Button = ({
     <StyledButton
       className={`${type === 'bg' ? styles.bg : styles.border} ${
         color === 'transparent'
-          ? styles.transparent
-          : color === 'black'
-          ? styles.black
-          : styles.yellow
+          ? styles.transparentButton
+          : color === 'green'
+          ? styles.greenButton
+          : color === 'yellow'
+          ? styles.yellowButton
+          : color === 'red'
+          ? styles.redButton
+          : styles.blackButton
       }`}
       style={style}
       onClick={onClick}

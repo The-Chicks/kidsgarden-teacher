@@ -38,10 +38,10 @@ const ClassAddPanel = () => {
           />
         </FormRow>
         <Flex width="100%" margin="10px 0 0 0" align="flex-end">
-          <Button color="orange" onClick={addClass}>
+          <Button color="yellow" onClick={addClass}>
             등록하기
           </Button>
-          <Button type="border" color="orange" onClick={reset}>
+          <Button type="border" color="yellow" onClick={reset}>
             초기화
           </Button>
         </Flex>

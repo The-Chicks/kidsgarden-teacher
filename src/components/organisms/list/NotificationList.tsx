@@ -9,18 +9,10 @@ import NotificationItem from '../../molecules/listitem/NotificationItem';
 const NotificationList = () => {
   const navigate = useNavigate();
   const Notifications = [
-    { id: 1, title: '알림장' },
-    { id: 2, title: '알림장' },
-    { id: 3, title: '알림장' },
-    { id: 4, title: '알림장' },
-    { id: 5, title: '알림장' },
-    { id: 6, title: '알림장' },
-    { id: 7, title: '알림장' },
-    { id: 8, title: '알림장' },
-    { id: 9, title: '알림장' },
-    { id: 10, title: '알림장' },
-    { id: 11, title: '알림장' },
-    { id: 12, title: '알림장' },
+    { id: 1, title: '유치원 알림장 제목입니다.' },
+    { id: 2, title: '유치원 알림장 제목입니다.' },
+    { id: 3, title: '유치원 알림장 제목입니다.' },
+    { id: 4, title: '유치원 알림장 제목입니다.' },
   ];
   return (
     <>

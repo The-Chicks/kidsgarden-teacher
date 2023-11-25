@@ -9,18 +9,26 @@ import { AnnouncementListItemInterface } from '../../../libs/interfaces/Interfac
 const AnnouncementList = () => {
   const navigate = useNavigate();
   const announcements = [
-    { id: 1, title: '공지사항' },
-    { id: 2, title: '공지사항' },
-    { id: 3, title: '공지사항' },
-    { id: 4, title: '공지사항' },
-    { id: 5, title: '공지사항' },
-    { id: 6, title: '공지사항' },
-    { id: 7, title: '공지사항' },
-    { id: 8, title: '공지사항' },
-    { id: 9, title: '공지사항' },
-    { id: 10, title: '공지사항' },
-    { id: 11, title: '공지사항' },
-    { id: 12, title: '공지사항' },
+    {
+      id: 1,
+      title: '유치원공지입니다공지입니다공지입니다공지입니다공지입니다',
+    },
+    {
+      id: 2,
+      title: '유치원공지입니다공지입니다공지입니다공지입니다공지입니다',
+    },
+    {
+      id: 3,
+      title: '유치원공지입니다공지입니다공지입니다공지입니다공지입니다',
+    },
+    {
+      id: 4,
+      title: '유치원공지입니다공지입니다공지입니다공지입니다공지입니다',
+    },
+    {
+      id: 5,
+      title: '공지 유치원공지입니다공지입니다공지입니다공지입니다공지입니다.',
+    },
   ];
   return (
     <>

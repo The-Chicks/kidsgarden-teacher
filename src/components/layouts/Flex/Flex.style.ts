@@ -5,6 +5,7 @@ export const Row = styled.div<{
   height: string;
   margin: string;
   padding: string;
+  direction: string;
   align: string;
   crossalign: string;
   gap: string;
@@ -13,8 +14,9 @@ export const Row = styled.div<{
   height: ${(props) => props.height};
   margin: ${(props) => props.margin};
   padding: ${(props) => props.padding};
+  display: flex;
+  flex-direction: ${(props) => props.direction};
   justify-content: ${(props) => props.align};
   align-items: ${(props) => props.crossalign};
-  display: flex;
   gap: ${(props) => props.gap};
 `;

@@ -22,7 +22,7 @@ const ImageUploader = ({
       style={{
         flex: '0 0 auto',
       }}
-      color="grey"
+      color="black"
       width={width}
       height={height}
       onClick={() => {

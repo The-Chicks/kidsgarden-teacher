@@ -8,25 +8,21 @@ const Menu = () => {
     '학급',
     '공지사항',
     '식단',
-    '등원 정보',
     '알림장',
     '앨범',
     '출석',
     '선생님 대화',
     '일정',
-    '성장 기록',
   ];
   const links = [
     '/teacher/class',
     '/teacher/announcement',
-    '식단',
-    '등원 정보',
+    '/teacher/diet',
     '/teacher/notification',
-    '앨범',
-    '출석',
-    '선생님 대화',
-    '일정',
-    '성장 기록',
+    '/teacher/album',
+    '/teacher/attendance',
+    '/teacher/conversation',
+    '/teacher/schedule',
   ];
 
   return (

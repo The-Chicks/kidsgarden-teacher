@@ -42,7 +42,7 @@ const Header = () => {
         style={{
           width: isMobile ? '100px' : '10dvw',
           height: '50px',
-          backgroundColor: '#FFD100',
+          backgroundColor: isMobile ? 'transparent' : '#FFD100',
         }}
         fontSize={1.5}
       >

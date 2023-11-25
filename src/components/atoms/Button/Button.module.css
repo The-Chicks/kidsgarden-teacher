@@ -1,52 +1,94 @@
-.transparent {
+.transparentButton {
   border: 1px solid transparent;
   background-color: transparent;
   color: black;
 }
-.transparent:hover {
+.transparentButton:hover {
   border: 1px solid transparent;
   background-color: #ffd100;
   color: black;
 }
 
-.black.bg {
+.blackButton.bg {
   border: 1px solid transparent;
   background-color: black;
   color: white;
 }
-.black.bg:hover {
+.blackButton.bg:hover {
   border: 1px solid black;
   background-color: white;
   color: black;
 }
 
-.black.border {
+.blackButton.border {
   border: 1px solid black;
   background-color: white;
   color: black;
 }
-.black.border:hover {
+.blackButton.border:hover {
   background-color: black;
   color: white;
 }
 
-.yellow.bg {
+.yellowButton.bg {
   border: 1px solid transparent;
   background-color: #ffd100;
   color: black;
 }
-.yellow.bg:hover {
+.yellowButton.bg:hover {
   border: 1px solid #ff9900;
   background-color: white;
   color: #ff9900;
 }
 
-.yellow.border {
+.yellowButton.border {
   border: 1px solid #ff9900;
   background-color: white;
   color: #ff9900;
 }
-.yellow.border:hover {
+.yellowButton.border:hover {
   background-color: #ffd100;
+  color: black;
+}
+
+.redButton.bg {
+  border: 1px solid transparent;
+  background-color: #ff4400;
+  color: black;
+}
+.redButton.bg:hover {
+  border: 1px solid #ff4400;
+  background-color: white;
+  color: #ff4400;
+}
+
+.redButton.border {
+  border: 1px solid #ff4400;
+  background-color: white;
+  color: #ff4400;
+}
+.redButton.border:hover {
+  background-color: #ff4400;
+  color: black;
+}
+
+.greenButton.bg {
+  border: 1px solid transparent;
+  background-color: #00ff77;
+  color: black;
+}
+.greenButton.bg:hover {
+  border: 1px solid #00ff77;
+  background-color: white;
+  color: #00ff77;
+}
+
+.greenButton.border {
+  border: 1px solid #00ff77;
+  background-color: white;
+  color: #00ff77;
+}
+.greenButton.border:hover {
+  background-color: #00ff77;
   color: black;
 }
