@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PanelLayout from '../../layouts/PanelLayout/ListPanelLayout';
 import AnnouncementItem from '../../molecules/listitem/AnnouncementItem';
 import Flex from '../../layouts/Flex';
@@ -8,28 +8,28 @@ import { AnnouncementListItemInterface } from '../../../libs/interfaces/Interfac
 
 const AnnouncementList = () => {
   const navigate = useNavigate();
-  const announcements = [
+  const [announcements, setAnnouncements] = useState([
     {
       id: 1,
-      title: '유치원공지입니다공지입니다공지입니다공지입니다공지입니다',
+      title: '제목1',
     },
     {
       id: 2,
-      title: '유치원공지입니다공지입니다공지입니다공지입니다공지입니다',
+      title: '제목2',
     },
-    {
-      id: 3,
-      title: '유치원공지입니다공지입니다공지입니다공지입니다공지입니다',
-    },
-    {
-      id: 4,
-      title: '유치원공지입니다공지입니다공지입니다공지입니다공지입니다',
-    },
-    {
-      id: 5,
-      title: '공지 유치원공지입니다공지입니다공지입니다공지입니다공지입니다.',
-    },
-  ];
+  ]);
+
+  useEffect(() => {
+    const tt = localStorage.getItem('noticeTitle');
+    if (localStorage.getItem('noticeTitle') !== null) {
+      const temp: AnnouncementListItemInterface = {
+        id: 3,
+        title: tt || '',
+      };
+      setAnnouncements([...announcements, temp]);
+    }
+  }, []);
+
   return (
     <>
       <Flex width="100%" align="flex-end">

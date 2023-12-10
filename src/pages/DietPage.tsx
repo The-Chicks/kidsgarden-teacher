@@ -11,6 +11,7 @@ import ScrollableRow from '../components/layouts/ScrollableRow';
 import TextArea from '../components/atoms/TextArea';
 import Form from '../components/layouts/Form';
 import ImageUploader from '../components/atoms/ImageUploader.tsx';
+import Input from '../components/atoms/Input';
 
 const DietPage = () => {
   const isMobile = useMediaQuery({
@@ -20,9 +21,9 @@ const DietPage = () => {
   const [lunchImgs, setLunchImgs] = useState<Blob[]>([]);
   const [dinnerImgs, setDinnerImgs] = useState<Blob[]>([]);
   const [{ dietBreakfast, dietLunch, dietDinner }, onChange, reset] = useForm({
-    dietBreakfast: '',
-    dietLunch: '',
-    dietDinner: '',
+    dietBreakfast: '흑미밥, 된장찌개, 너비아니, 호박 새우 볶음, 딸기',
+    dietLunch: '흑미밥, 된장찌개, 너비아니, 호박 새우 볶음, 딸기',
+    dietDinner: '흑미밥, 된장찌개, 너비아니, 호박 새우 볶음, 딸기',
   });
 
   const selImg = (file: Blob[], type: number) => {
@@ -46,7 +47,7 @@ const DietPage = () => {
       setDinnerImgs(dinnerImgs.filter((item: Blob, i: number) => idx !== i));
     }
   };
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
 
   const diets = [
     {
@@ -71,7 +72,7 @@ const DietPage = () => {
             name="date"
             value={date}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setDate(new Date(e.target.value));
+              setDate(new Date(e.target.value).toISOString().slice(0, 10));
             }}
           />
           <Button type="bg" color="yellow" onClick={saveDiet}>
@@ -84,9 +85,9 @@ const DietPage = () => {
             return (
               <>
                 <FormRow title={e.text}>
-                  <TextArea
+                  <Input
                     width={isMobile ? '100%' : 'calc(100% - 120px)'}
-                    height={isMobile ? '200px' : '300px'}
+                    // height={isMobile ? '200px' : '300px'}
                     placeholder={e.text}
                     name={e.name}
                     value={e.value}
@@ -98,6 +99,15 @@ const DietPage = () => {
                     width={isMobile ? '100%' : 'calc(100% - 120px)'}
                     height={isMobile ? '100px' : '200px'}
                   >
+                    <img
+                      src={
+                        'https://www.shutterstock.com/ko/blog/wp-content/uploads/sites/17/2018/11/shutterstock_1068672764.jpg'
+                      }
+                      alt="DietImg"
+                      width={isMobile ? 100 : 200}
+                      height={isMobile ? 100 : 200}
+                      style={{ objectFit: 'cover' }}
+                    />
                     {e.imgs.map((item: Blob, idx: number) => {
                       return (
                         <Button

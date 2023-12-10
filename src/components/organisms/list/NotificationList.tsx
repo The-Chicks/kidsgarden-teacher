@@ -8,12 +8,7 @@ import NotificationItem from '../../molecules/listitem/NotificationItem';
 
 const NotificationList = () => {
   const navigate = useNavigate();
-  const Notifications = [
-    { id: 1, title: '유치원 알림장 제목입니다.' },
-    { id: 2, title: '유치원 알림장 제목입니다.' },
-    { id: 3, title: '유치원 알림장 제목입니다.' },
-    { id: 4, title: '유치원 알림장 제목입니다.' },
-  ];
+  const Notifications = [{ id: 1, title: '2023.12.09 제목1' }];
   return (
     <>
       <Flex width="100%" align="flex-end">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PanelLayout from '../components/layouts/PanelLayout/PanelLayout';
 import useForm from '../libs/hooks/useForm';
 import Form from '../components/layouts/Form';
@@ -11,20 +11,17 @@ import ImageUploader from '../components/atoms/ImageUploader.tsx';
 import ScrollableRow from '../components/layouts/ScrollableRow';
 import { useMediaQuery } from 'react-responsive';
 import TextArea from '../components/atoms/TextArea';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-const AnnouncementAddPage = () => {
+const AnnouncementEditPage = () => {
+  const { id } = useParams();
   const navigate = useNavigate();
   const isMobile = useMediaQuery({
     query: '(max-width: 700px)',
   });
   const [images, setImages] = useState<Blob[]>([]);
-  const [{ announcementTitle, announcementContent }, onChange, reset] = useForm(
-    {
-      title: '',
-      content: '',
-    },
-  );
+  const [title, setTitle] = useState(`제목${id}`);
+  const [content, setContent] = useState('내용입니다.');
 
   const selImg = (file: Blob[]) => {
     setImages([...images, ...file]);
@@ -34,12 +31,17 @@ const AnnouncementAddPage = () => {
   };
 
   const addAnnouncement = () => {
-    console.log(announcementTitle, announcementContent);
-    localStorage.setItem('noticeTitle', announcementTitle);
-    localStorage.setItem('noticeContent', announcementContent);
+    console.log(title, content);
+    localStorage.setItem('noticeTitle', title);
+    localStorage.setItem('noticeContent', content);
+    // localStorage.setItem('noticeTitle', '1');
     navigate('/teacher/announcement');
     return;
   };
+  useEffect(() => {
+    setTitle(localStorage.getItem('noticeTitle') || '');
+    setContent(localStorage.getItem('noticeContent') || '');
+  }, []);
 
   return (
     <article>
@@ -53,8 +55,10 @@ const AnnouncementAddPage = () => {
               color="orange"
               placeholder="제목"
               name="announcementTitle"
-              value={announcementTitle}
-              onChange={onChange}
+              value={title}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setTitle(e.target.value);
+              }}
             />
           </FormRow>
           <FormRow title="내용">
@@ -63,8 +67,10 @@ const AnnouncementAddPage = () => {
               height={isMobile ? '200px' : '300px'}
               placeholder="내용"
               name="announcementContent"
-              value={announcementContent}
-              onChange={onChange}
+              value={content}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setContent(e.target.value);
+              }}
             />
           </FormRow>
           <FormRow title="이미지">
@@ -110,7 +116,14 @@ const AnnouncementAddPage = () => {
             <Button color="orange" onClick={addAnnouncement}>
               등록하기
             </Button>
-            <Button type="border" color="orange" onClick={reset}>
+            <Button
+              type="border"
+              color="orange"
+              onClick={() => {
+                setTitle('');
+                setContent('');
+              }}
+            >
               초기화
             </Button>
           </Flex>
@@ -120,4 +133,4 @@ const AnnouncementAddPage = () => {
   );
 };
 
-export default AnnouncementAddPage;
+export default AnnouncementEditPage;

@@ -16,6 +16,7 @@ import ConversationPage from './pages/ConversationPage';
 import DietPage from './pages/DietPage';
 import AlbumPage from './pages/AlbumPage';
 import SchedulePage from './pages/SchedulePage';
+import AnnouncementEditPage from './pages/AnnouncementEditPage';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="class" element={<ClassPage />} />
             <Route path="announcement" element={<AnnouncementPage />} />
             <Route path="announcement/add" element={<AnnouncementAddPage />} />
+            <Route path="announcement/:id" element={<AnnouncementEditPage />} />
             <Route path="notification" element={<NotificationPage />} />
             <Route path="notification/add" element={<NotificationAddPage />} />
             <Route path="information" element={<InformationPage />} />

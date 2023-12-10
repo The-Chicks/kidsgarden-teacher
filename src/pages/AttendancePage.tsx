@@ -10,7 +10,7 @@ const AttendancePage = () => {
   const isMobile = useMediaQuery({
     query: '(max-width: 700px)',
   });
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
   const [attendance, setAttendance] = useState([
     { id: 1, name: '테스트학생1', attendance: 0 },
     { id: 2, name: '테스트학생2', attendance: 0 },
@@ -32,7 +32,7 @@ const AttendancePage = () => {
             name="date"
             value={date}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setDate(new Date(e.target.value));
+              setDate(new Date(e.target.value).toISOString().slice(0, 10));
             }}
           />
 

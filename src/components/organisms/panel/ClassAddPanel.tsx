@@ -15,6 +15,8 @@ const ClassAddPanel = () => {
 
   const addClass = () => {
     console.log(className, classTeacher);
+    localStorage.setItem('className', className);
+    localStorage.setItem('classTeacher', classTeacher);
     return;
   };
 

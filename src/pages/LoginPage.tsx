@@ -5,14 +5,17 @@ import styled from 'styled-components';
 import Text from '../components/atoms/Text';
 import Input from '../components/atoms/Input';
 import Button from '../components/atoms/Button';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
+  const navigate = useNavigate();
   const isMobile = useMediaQuery({
     query: '(max-width: 700px)',
   });
   const [email, setEmail] = useState('');
   const [pw, setPw] = useState('');
   const login = () => {
+    navigate('/teacher/class');
     return;
   };
 

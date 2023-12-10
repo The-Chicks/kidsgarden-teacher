@@ -29,7 +29,7 @@ const AlbumPage = () => {
   const delImg = (idx: number) => {
     setImgs(imgs.filter((item: Blob, i: number) => idx !== i));
   };
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
 
   const saveAlbum = () => {
     return;
@@ -44,7 +44,7 @@ const AlbumPage = () => {
             name="date"
             value={date}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setDate(new Date(e.target.value));
+              setDate(new Date(e.target.value).toISOString().slice(0, 10));
             }}
           />
         </Flex>
@@ -80,7 +80,7 @@ const AlbumPage = () => {
                     style={{
                       flex: '0 0 auto',
                     }}
-                    key={`Album_${date.toLocaleDateString()}_${idx}`}
+                    key={`Album_${date}_${idx}`}
                     width={isMobile ? '100px' : '200px'}
                     height={isMobile ? '100px' : '200px'}
                     onClick={() => {

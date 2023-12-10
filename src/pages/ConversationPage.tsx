@@ -16,31 +16,23 @@ const ConversationPage = () => {
 
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [selected, setSelected] = useState(-1);
-  const [answerContent, setAnswerContent] = useState('');
+  const [answerContent, setAnswerContent] = useState(
+    localStorage.getItem('convA') || '',
+  );
 
   const conversations = [
     {
       conv_id: 1,
-      conv_title: '대화 테스트 1',
-      conv_content: '',
-      conv_date: '',
-    },
-    {
-      conv_id: 2,
-      conv_title: '대화 테스트 2',
-      conv_content: '',
-      conv_date: '',
-    },
-    {
-      conv_id: 3,
-      conv_title: '대화 테스트 3',
+      conv_title: '선생님 우리 아이 유치원 옮김 문의드립니다.',
       conv_content:
-        '선생님 대화입니다. 선생님대화입니다.선생님 대화입니다. 선생님대화입니다.선생님 대화입니다. 선생님대화입니다.선생님 대화입니다. 선생님대화입니다.선생님 대화입니다. 선생님대화입니다.선생님 대화입니다. 선생님대화입니다.선생님 대화입니다. 선생님대화입니다.선생님 대화입니다. 선생님대화입니다.',
-      conv_date: '',
+        '남편이 직장을 지방으로 발령받게 되어서 부득이하게 아이가 유치원을 그만 다니게 되었네요ㅠㅠ 그 동안 정말 감사했습니다 선생님. 여기에 문의를 남기면 될까요?',
+      conv_date: '2023-12-10',
     },
   ];
 
   const addAnswer = () => {
+    localStorage.setItem('convA', answerContent);
+    setIsModalOpened(false);
     return;
   };
 

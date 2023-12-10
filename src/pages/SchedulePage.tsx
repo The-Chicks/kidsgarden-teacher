@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PanelLayout from '../components/layouts/PanelLayout/PanelLayout';
 import useForm from '../libs/hooks/useForm';
 import Form from '../components/layouts/Form';
@@ -14,34 +14,31 @@ const SchedulePage = () => {
   const isMobile = useMediaQuery({
     query: '(max-width: 700px)',
   });
-  const [
-    { clock8, clock9, clock10, clock11, clock12, clock13, clock14, clock15 },
-    onChange,
-    reset,
-  ] = useForm({
-    clock8: '',
-    clock9: '',
-    clock10: '',
-    clock11: '',
-    clock12: '',
-    clock13: '',
-    clock14: '',
-    clock15: '',
-  });
-  const [date, setDate] = useState(new Date());
-  const lst = [
-    clock8,
-    clock9,
-    clock10,
-    clock11,
-    clock12,
-    clock13,
-    clock14,
-    clock15,
-  ];
+  const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
+  // const [
+  //   { clock8, clock9, clock10, clock11, clock12, clock13, clock14, clock15 },
+  //   onChange,
+  //   reset,
+  // ] = useForm({
+  //   clock8: date === '2023-12-09' ? '소풍' : '등원 및 독서 시간',
+  //   clock9: date === '2023-12-09' ? '소풍' : '등원 및 독서 시간',
+  //   clock10: date === '2023-12-09' ? '소풍' : '등원 및 독서 시간',
+  //   clock11: date === '2023-12-09' ? '소풍' : '등원 및 독서 시간',
+  //   clock12: date === '2023-12-09' ? '소풍' : '등원 및 독서 시간',
+  //   clock13: date === '2023-12-09' ? '소풍' : '등원 및 독서 시간',
+  //   clock14: date === '2023-12-09' ? '소풍' : '등원 및 독서 시간',
+  //   clock15: date === '2023-12-09' ? '소풍' : '등원 및 독서 시간',
+  // });
+  const [data, setData] = useState('등원 및 독서 시간');
+  const lst = [0, 0, 0, 0, 0, 0, 0, 0];
   const saveSchedule = () => {
     return;
   };
+  useEffect(() => {
+    if (date === '2023-12-09') {
+      setData('소풍');
+    }
+  }, [date]);
 
   return (
     <article>
@@ -51,7 +48,7 @@ const SchedulePage = () => {
           name="date"
           value={date}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            setDate(new Date(e.target.value));
+            setDate(new Date(e.target.value).toISOString().slice(0, 10));
           }}
         />
       </Flex>
@@ -63,8 +60,10 @@ const SchedulePage = () => {
                 <Input
                   placeholder={`${index + 8}시 일정을 입력해주세요`}
                   name={`clock${index + 8}`}
-                  value={e}
-                  onChange={onChange}
+                  value={data}
+                  onChange={() => {
+                    return;
+                  }}
                 />
               </FormRow>
             );
@@ -73,7 +72,13 @@ const SchedulePage = () => {
             <Button color="orange" onClick={saveSchedule}>
               등록하기
             </Button>
-            <Button type="border" color="orange" onClick={reset}>
+            <Button
+              type="border"
+              color="orange"
+              onClick={() => {
+                return;
+              }}
+            >
               초기화
             </Button>
           </Flex>
